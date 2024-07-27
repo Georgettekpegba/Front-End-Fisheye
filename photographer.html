@@ -9,29 +9,66 @@
   </head>
   <body>
     <header>
+      <!-- * -->
+      <div class="page">
+      <!-- * -->
       <img src="assets/images/logo.png" class="logo" />
     </header>
+    <!-- main -->
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" >Contactez-moi</button>
       </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img class="contact_close_btn" src="assets/icons/close.svg" />
+        </header>
         </header>
 				<form>
 					<div>
 						<label>Prénom</label>
 						<input />
 					</div>
+          <div>
+						<label for ="name">Nom</label>
+						<input />
+            <div>
+              <label for = "mail">Email</label>
+              <input />
+              <div class="msgbox">
+                <label  class="msg" for="subject">Votre message</label>
+                <textarea name="message" id="msg"></textarea>
+              </div>
+            </div>
+					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+       <!-- Lightbox -->
+        <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
+            <div class="lightbox" aria-label="Media closeup view">
+                <button class="btn_close_lightbox btn_close" aria-label="Close dialog"></button>
+                <button class="btn_next" aria-label="Next media"></button>
+                <button class="btn_previous" aria-label="Previous media"></button>
+                <figure class="lightbox_media" role="media" aria-label="Current Media"></figure>
+            </div> 
+        </div>
+    </div>
+       <!-- Lightbox -->
+       <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
+        <div class="lightbox" aria-label="Media closeup view">
+            <button class="btn_close_lightbox btn_close" aria-label="Close dialog"></button>
+            <button class="btn_next" aria-label="Next media"></button>
+            <button class="btn_previous" aria-label="Previous media"></button>
+            <figure class="lightbox_media" role="media" aria-label="Current Media"></figure>
+        </div> 
+    </div>
+</div>
+    <script type="module" src="./scripts/pages/photographerPage.js"></script>
+  </div>
   </body>
 </html>

@@ -1,3 +1,15 @@
+/* * */
+.close_modal {
+    display: none;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: auto;
+}
+/*  */
+
 #contact_modal {
     display: none;
 }
@@ -19,6 +31,9 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    /* .close_modal {
+        display: none;
+    } */
 }
 
 .modal {
@@ -31,10 +46,16 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    /* * */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .modal header {
+    /* justify-content: space-between;
+    width: 100%; */
+    display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -46,13 +67,14 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    margin: 0; /* * */
 }
 
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 form label {
@@ -64,7 +86,7 @@ form div {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: self-start;
+    /* align-items: self-start; */
     margin-bottom: 26px;
 }
 
@@ -74,3 +96,30 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/* form message box */
+form textarea {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 5px;
+}
+/* dialog */
+
+dialog::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green
+    );
+    opacity: 0.75;
+  }
+  
+  dialog {
+      border: none;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
