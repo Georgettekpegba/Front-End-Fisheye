@@ -1,13 +1,7 @@
 // Mettre le code JavaScript lié à la page photographer.html
-// a changer type modutule et à impoter from api
 import { displayModal, closeModal } from '../utils/contactForm.js';
-console.log('toto');
 import { getData } from '../api/data.js';
-
-
-// const headerInstance = new PhotographerHeader();
-// console.log(headerInstance); <=> a corriger ?????????????????????????????????????? 
-
+import { photographerMainTemplate } from '../templates/photographerMainTemplate.js'
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 console.log(contactFormBtn);
@@ -20,18 +14,24 @@ contactFormClose.addEventListener("click", closeModal);
 const url = new URL(window.location.href);
 const id = url.searchParams.get('id');
 console.log(id);
+
+// numero 2 à faire
 // diplay pfotographer
+async function displayPhotographerSinglePage(photographer) {
+    const photographersSection = document.querySelector("main");
+    const photographerModel = photographerMainTemplate(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
 
-// template
-
+}
 // media
-
 // factory media
 // *
 async function init() {
     // Récupère les datas des photographes
     const data = await getData();
-    const photographer = data.photographers.find((photographer) => photographer.id == id);
-    console.log(photographer);
+    const photographers = data.photographers.find((photographer) => photographer.id == id);
+    console.log(photographers);
+    displayPhotographerSinglePage(photographers);
 }
 init();

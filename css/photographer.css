@@ -104,22 +104,17 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
-/* dialog */
 
-dialog::backdrop {
-    background-image: linear-gradient(
-      45deg,
-      magenta,
-      rebeccapurple,
-      dodgerblue,
-      green
-    );
-    opacity: 0.75;
+  /* header photographer page */
+
+  .photographer-header{
+   
+
   }
-  
-  dialog {
-      border: none;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .photographer-img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
   }
