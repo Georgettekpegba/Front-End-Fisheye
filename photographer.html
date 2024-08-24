@@ -9,16 +9,15 @@
   </head>
   <body>
     <header>
-      <!-- * -->
-      <div class="page">
-      <!-- * -->
       <img src="assets/images/logo.png" class="logo" />
     </header>
     <!-- main -->
-    <main id="main">
+    <main id="main" >
+      <div class="page">
       <div class="photograph-header">
         <button class="contact_button" >Contactez-moi</button>
       </div>
+    </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -48,26 +47,31 @@
 				</form>
 			</div>
 		</div>
+    <!-- galery -->
+    <section class="photograph-galery">
+      <div class="photograph-galery_header">
+  
+        <div class="photograph-galery_header_filter">
+          <button class="photograph-galery__header__filter__button">Popularité</button>
+          <button class="photograph-galery__header__filter__button">Date</button>
+          <button class="photograph-galery__header__filter__button">Titre</button>
+        </div>
+      </div>
+      <div class="photograph-galery_content">
+        <div class="photograph-galery_content_media"> 
+        </div>
+      </div>
+      </section>
        <!-- Lightbox -->
-        <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
+    <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
             <div class="lightbox" aria-label="Media closeup view">
                 <button class="btn_close_lightbox btn_close" aria-label="Close dialog"></button>
                 <button class="btn_next" aria-label="Next media"></button>
                 <button class="btn_previous" aria-label="Previous media"></button>
                 <figure class="lightbox_media" role="media" aria-label="Current Media"></figure>
             </div> 
-        </div>
     </div>
-       <!-- Lightbox -->
-       <div class="lightbox_wrapper wrapper" aria-modal="true" role="dialog">
-        <div class="lightbox" aria-label="Media closeup view">
-            <button class="btn_close_lightbox btn_close" aria-label="Close dialog"></button>
-            <button class="btn_next" aria-label="Next media"></button>
-            <button class="btn_previous" aria-label="Previous media"></button>
-            <figure class="lightbox_media" role="media" aria-label="Current Media"></figure>
-        </div> 
-    </div>
-</div>
+  </div>
     <script type="module" src="./scripts/pages/photographerPage.js"></script>
   </div>
   </body>

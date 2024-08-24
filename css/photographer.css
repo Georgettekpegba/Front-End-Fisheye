@@ -2,11 +2,55 @@
 .close_modal {
     display: none;
 }
-main {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+}
+.page {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     padding: auto;
+}
+
+main .page :nth-child(1){
+    order: 2;
+}
+main .page :nth-child(3){
+    order: 1;
+}
+main .page :nth-child(2){
+    order: 3;       
+} 
+.header-title h1{
+    color: #D3573C;
+    font-size: 48px;
+}
+.header-title h3{
+    color: #901C1C;
+    font-size: 24px;
+}
+
+.header-title p{
+    
+}
+.photograph-header{
+    display: grid;
+    gap: 1,5 rem;
+    padding: auto;
+    background-color: white;
+    margin-inline: 100px;
+    grid-template-columns: repeat(3 , 1fr);
+}
+/* .photograph-header:first-child{
+    /grid-column: 1 / span 4; 
+    background-color: red;
+    order: 2;
+} */
+.contact_button{
+    background-color: red;
 }
 /*  */
 
@@ -14,11 +58,6 @@ main {
     display: none;
 }
 
-.photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
-}
 
 .contact_button {
     font-size: 20px;
@@ -31,6 +70,7 @@ main {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;
     /* .close_modal {
         display: none;
     } */
@@ -107,10 +147,10 @@ form textarea {
 
   /* header photographer page */
 
-  .photographer-header{
+  /* .photographer-header{
    
 
-  }
+  } */
 
   .photographer-img{
     height: 200px;
@@ -118,3 +158,12 @@ form textarea {
     border-radius: 50%;
     object-fit: cover;
   }
+  /* footer */
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #901C1C;
+        color: white;
+        height: 100px;
+    }                                                                          

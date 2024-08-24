@@ -5,7 +5,8 @@ export function photographerMainTemplate(data) {
     const picture = `assets/photographers/${portrait}`;
     function getUserCardDOM() {
         const article = document.createElement('article');
-        article.classList.add('photographer-header');
+        article.classList.add('photographer-infos');
+        console.log(article);
         // on cree le lien du photographer card
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
@@ -16,27 +17,41 @@ export function photographerMainTemplate(data) {
         img.src = picture;
         img.alt = `Portrait de ${name}`;
         img.classList.add("photographer-img");
-
         // on rajoute les infos photographes
+        const photographerInfoWrapper = document.createElement('div');
+        photographerInfoWrapper.classList.add('header-title');
         const photographerName = document.createElement('h1');
         photographerName.textContent = name;
-        photographerName.classList.add('photographer-name');
+
         // location photographer
-        const location = document.createElement('p');
+        const location = document.createElement('h3');
         location.textContent = `${city}, ${country}`;
         location.classList.add('photographer-location');
         // blason photographer
         const slogan = document.createElement('p');
+
         slogan.textContent = tagline;
+        // accessing photographer header section
+        const header = document.querySelector('.photograph-header');
+        const btn = document.querySelector('.contact_button');
+        header.insertBefore(article, btn);
+        // article.appendChild(title);
+        header.appendChild(img);
+        // article.appendChild(location);
+        header.appendChild(location);
+        // article.appendChild(slogan);
+        header.appendChild(slogan);
+        header.appendChild(photographerInfoWrapper)
+        photographerInfoWrapper.appendChild(photographerName)
+        photographerInfoWrapper.appendChild(location)
+        photographerInfoWrapper.appendChild(slogan)
 
-        article.appendChild(link);
-        link.appendChild(img);
-        link.appendChild(location);
-        link.appendChild(slogan);
 
+        // adding a footer section
+        const footer = document.createElement('footer');
+        footer.classList.add('photographer-footer');
         return (article);
     }
     return { name, picture, city, country, tagline, id, getUserCardDOM };
 
 }
-

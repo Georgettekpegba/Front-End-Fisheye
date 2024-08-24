@@ -1,7 +1,20 @@
 // Mettre le code JavaScript lié à la page photographer.html
 import { displayModal, closeModal } from '../utils/contactForm.js';
 import { getData } from '../api/data.js';
-import { photographerMainTemplate } from '../templates/photographerMainTemplate.js'
+import { photographerMainTemplate } from '../templates/photographerMainTemplate.js';
+// import { mediaTemplate } from '../templates/photographerMediaTemplate.js';
+// console.logs
+// console.log(mediaTemplate);
+// ********* */
+// filter media data
+// const mediaData = getPhotographerMedia();
+// console.log(mediaData);
+// const params = new URL(document.location).searchParams;
+// const photographerId = parseInt(params.get("id"));
+// return media.filter(
+//     (mediaItem) => mediaItem.photographerId === photographerId
+// );
+//********* */
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 console.log(contactFormBtn);
@@ -25,6 +38,12 @@ async function displayPhotographerSinglePage(photographer) {
 
 }
 // media
+// async function displayMedia(photographer) {
+//     const mediaSection = document.querySelector('.gallery');
+//     const mediaModel = mediaTemplate(photographer);
+//     const userMediaCardDOM = mediaModel.getMediaCardDOM();
+//     mediaSection.appendChild(userMediaCardDOMediaCardDOM);
+// }
 // factory media
 // *
 async function init() {
@@ -33,5 +52,6 @@ async function init() {
     const photographers = data.photographers.find((photographer) => photographer.id == id);
     console.log(photographers);
     displayPhotographerSinglePage(photographers);
+    // displayMedia(photographers);
 }
 init();

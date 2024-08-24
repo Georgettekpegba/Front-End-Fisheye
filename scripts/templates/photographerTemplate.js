@@ -1,5 +1,4 @@
 export function photographerTemplate(data) {
-
     // const card = (data) => {
     const { name, portrait, city, country, tagline, price, id } = data;
     // use id later to get the photographer's photos
@@ -14,7 +13,6 @@ export function photographerTemplate(data) {
         link.setAttribute('aria-label', `Voir la page de ${name}`);
 
         // on rajoute l'image du photographe
-
         const img = document.createElement('img');
         img.src = picture;
         img.alt = `Portrait de ${name}`;
