@@ -1,6 +1,7 @@
+
 export function photographerMainTemplate(data) {
     // const card = (data) => {
-    const { name, portrait, city, country, tagline, id } = data;
+    const { name, portrait, city, country, tagline, galery, photo, id } = data;
     // use id later to get the photographer's photos
     const picture = `assets/photographers/${portrait}`;
     function getUserCardDOM() {
@@ -35,6 +36,19 @@ export function photographerMainTemplate(data) {
         const header = document.querySelector('.photograph-header');
         const btn = document.querySelector('.contact_button');
         header.insertBefore(article, btn);
+
+        // photographer gallery???????????????????????,
+        // const gallery = document.querySelector('photograph-galery');
+        // gallery.innerHTML = [photo].map((photo) => {    // photo is an array
+        //     return `<img src="assets/Sample Photos${photo}" alt="photo" class="photograph-galery-img">`
+        // }).join('');
+        // const photo = data.photo;
+        // const gallery = document.querySelector('.photograph-gallery');
+        // gallery.innerHTML = (photo || []).map(photoSrc => {
+        //     return `<img src="assets/Sample Photos${photoSrc}" alt="photo" class="photograph-gallery-img">`;
+        // }).join('');
+
+
         // article.appendChild(title);
         header.appendChild(img);
         // article.appendChild(location);
@@ -52,6 +66,6 @@ export function photographerMainTemplate(data) {
         footer.classList.add('photographer-footer');
         return (article);
     }
-    return { name, picture, city, country, tagline, id, getUserCardDOM };
+    return { name, picture, city, country, tagline, galery, photo, id, getUserCardDOM };
 
 }

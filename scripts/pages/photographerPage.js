@@ -1,10 +1,9 @@
 // Mettre le code JavaScript lié à la page photographer.html
 import { displayModal, closeModal } from '../utils/contactForm.js';
 import { getData } from '../api/data.js';
+import { getMedia } from '../api/media.js';
 import { photographerMainTemplate } from '../templates/photographerMainTemplate.js';
-// import { mediaTemplate } from '../templates/photographerMediaTemplate.js';
-// console.logs
-// console.log(mediaTemplate);
+import { mediaTemplate } from '../templates/photographerMediaTemplate.js';
 // ********* */
 // filter media data
 // const mediaData = getPhotographerMedia();
@@ -37,21 +36,14 @@ async function displayPhotographerSinglePage(photographer) {
     photographersSection.appendChild(userCardDOM);
 
 }
-// media
-// async function displayMedia(photographer) {
-//     const mediaSection = document.querySelector('.gallery');
-//     const mediaModel = mediaTemplate(photographer);
-//     const userMediaCardDOM = mediaModel.getMediaCardDOM();
-//     mediaSection.appendChild(userMediaCardDOMediaCardDOM);
-// }
 // factory media
 // *
 async function init() {
     // Récupère les datas des photographes
-    const data = await getData();
-    const photographers = data.photographers.find((photographer) => photographer.id == id);
-    console.log(photographers);
-    displayPhotographerSinglePage(photographers);
+    const { photographer, photographerMedia } = await getMedia(id);
+
+    console.log(photographer, photographerMedia);
+    displayPhotographerSinglePage(photographer);
     // displayMedia(photographers);
 }
 init();
