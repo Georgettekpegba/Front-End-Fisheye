@@ -7,7 +7,6 @@ export function photographerMainTemplate(data) {
     function getUserCardDOM() {
         const article = document.createElement('article');
         article.classList.add('photographer-infos');
-        console.log(article);
         // on cree le lien du photographer card
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
@@ -36,17 +35,6 @@ export function photographerMainTemplate(data) {
         const header = document.querySelector('.photograph-header');
         const btn = document.querySelector('.contact_button');
         header.insertBefore(article, btn);
-
-        // photographer gallery???????????????????????,
-        // const gallery = document.querySelector('photograph-galery');
-        // gallery.innerHTML = [photo].map((photo) => {    // photo is an array
-        //     return `<img src="assets/Sample Photos${photo}" alt="photo" class="photograph-galery-img">`
-        // }).join('');
-        // const photo = data.photo;
-        // const gallery = document.querySelector('.photograph-gallery');
-        // gallery.innerHTML = (photo || []).map(photoSrc => {
-        //     return `<img src="assets/Sample Photos${photoSrc}" alt="photo" class="photograph-gallery-img">`;
-        // }).join('');
 
 
         // article.appendChild(title);
