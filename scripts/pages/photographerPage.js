@@ -27,9 +27,14 @@ async function displayPhotographerSinglePage(photographer) {
 // factory media
 async function displayPhotographerMedia(mediaList) {
     const photographersGallery = document.querySelector(".photograph-galery_content");
-    const photographerModel = displayMedia(mediaList[0]);
-    const mediaCardDOM = photographerModel.getMediaCardDOM();
-    photographersGallery.appendChild(mediaCardDOM);
+    mediaList.forEach(media => {
+        const photographerModel = displayMedia(media);
+        const mediaCardDOM = photographerModel.getMediaCardDOM();
+        photographersGallery.appendChild(mediaCardDOM);
+    });
+    // const photographerModel = displayMedia(mediaList[0]);
+    // const mediaCardDOM = photographerModel.getMediaCardDOM();
+    // photographersGallery.appendChild(mediaCardDOM);
 }
 //
 async function init() {
