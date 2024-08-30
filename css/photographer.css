@@ -33,9 +33,9 @@ main .page :nth-child(2){
     font-size: 24px;
 }
 
-.header-title p{
+/* .header-title p{
     
-}
+} */
 .photograph-header{
     display: grid;
     gap: 1,5 rem;
@@ -158,6 +158,25 @@ form textarea {
     border-radius: 50%;
     object-fit: cover;
   }
+  /* gallery */
+  .photographer-all-img{
+    height: 400px;
+    width: 400px;
+    border-radius: 1%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+  }
+.photograph-galery_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 10px;
+}
+  /*  */
+  /*  */
   /* footer */
     footer{
         display: flex;

@@ -26,7 +26,7 @@ export function displayMedia(photographerMedia) {
         const img = document.createElement('img');
         img.src = picture;
         // img.alt = `Portrait de ${name}`;
-        img.classList.add("photographer-img");
+        img.classList.add("photographer-all-img");
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
 
