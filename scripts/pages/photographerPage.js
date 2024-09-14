@@ -2,7 +2,8 @@
 import { displayModal, closeModal } from '../utils/contactForm.js';
 import { getMedia } from '../api/media.js';
 import { photographerMainTemplate } from '../templates/photographerMainTemplate.js';
-import { displayMedia } from '../templates/displayMedia.js';
+import { mediaFactory } from '../factory/mediaFactory.js';
+
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 console.log(contactFormBtn);
@@ -28,13 +29,11 @@ async function displayPhotographerSinglePage(photographer) {
 async function displayPhotographerMedia(mediaList) {
     const photographersGallery = document.querySelector(".photograph-galery_content");
     mediaList.forEach(media => {
-        const photographerModel = displayMedia(media);
-        const mediaCardDOM = photographerModel.getMediaCardDOM();
+        const photographerMedia = mediaFactory(media);
+        const mediaCardDOM = photographerMedia.getMediaCardDOM();
         photographersGallery.appendChild(mediaCardDOM);
     });
-    // const photographerModel = displayMedia(mediaList[0]);
-    // const mediaCardDOM = photographerModel.getMediaCardDOM();
-    // photographersGallery.appendChild(mediaCardDOM);
+
 }
 //
 async function init() {
