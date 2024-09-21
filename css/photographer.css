@@ -1,4 +1,5 @@
 /* * */
+@import url("https://fonts.google.com/icons?selected=Material+Symbols+Outlined:favorite:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%235f6368");
 .close_modal {
     display: none;
 }
@@ -175,7 +176,17 @@ form textarea {
     gap: 70px;
     margin-top: 10px;
 }
-  /*  */
+  /* likes  */
+  .photographer-like{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+.fas fa-heart{
+    color: red; 
+}
   /*  */
   /* footer */
     footer{
