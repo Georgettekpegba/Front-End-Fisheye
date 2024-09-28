@@ -7,14 +7,8 @@ export function displayCounterInfos(price) {
         const mediaLikeCount = document.querySelectorAll(".like-btn");
         let totalMediaLikeCount = 0;
         mediaLikeCount.forEach((likes) => {
-            console.log('====================================');
-            console.log(likes);
-            console.log('====================================');
             totalMediaLikeCount += Number(likes.textContent);
-
-
         });
-
         // svg
         const svgImage = document.createElement('img');
         svgImage.src = svg;

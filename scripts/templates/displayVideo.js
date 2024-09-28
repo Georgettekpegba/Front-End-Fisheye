@@ -21,7 +21,10 @@ export function displayVideo(photographerMedia) {
         video.classList.add("photographer-all-img");
         // @event listeners
         video.addEventListener('click', () => {
-            console.log('click');
+            video.play()
+                .catch((error) => {
+                    document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
+                });
         });
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
