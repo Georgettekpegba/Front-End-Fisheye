@@ -18,6 +18,7 @@ export function displayImage(photographerMedia) {
         img.classList.add("photographer-all-img");
         // carddescription
         const cardDescription = document.createElement('div');
+        cardDescription.classList.add('card-description');
         const titleElement = document.createElement('p');
         titleElement.textContent = title;
         cardDescription.appendChild(titleElement);
@@ -26,14 +27,13 @@ export function displayImage(photographerMedia) {
         // // likes
         // const likeWraper = document.createElement('div');
         const likeBtn = document.createElement('btn');
+        likeBtn.classList.add('like-btn');
         const likeNumber = document.createElement('span');
         likeNumber.textContent = likes;
-
         // svg
         const svgImage = document.createElement('img');
         svgImage.src = svg;
         svgImage.classList.add('heart');
-
         likeBtn.appendChild(likeNumber);
         likeBtn.appendChild(svgImage);
         cardDescription.appendChild(likeBtn);
@@ -43,8 +43,10 @@ export function displayImage(photographerMedia) {
                 likeNumber.textContent = Number(likeNumber.textContent) + 1;
             }
         );
-
-
+        // select setion?????????????????????????????
+        // const selection = document.getElementById('section')
+        // const dropdownHtml = select
+        // selection.innerHTML += dropdownHtml;;
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
         console.log(gallery);

@@ -19,6 +19,10 @@ export function displayVideo(photographerMedia) {
         video.appendChild(source);
         // img.alt = `Portrait de ${name}`;
         video.classList.add("photographer-all-img");
+        // @event listeners
+        video.addEventListener('click', () => {
+            console.log('click');
+        });
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
 

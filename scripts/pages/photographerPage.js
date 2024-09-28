@@ -43,14 +43,21 @@ function displayLightBox(media) {
 
 }
 //
-function displayPhotographerCounter(price) {
+function displayPhotographerCounter(price,) {
     displayCounterInfos(price);
     const photographersSection = document.querySelector("main");
     const counterInfos = displayCounterInfos(price);
     const userCardDOM = counterInfos.getCardDOM();
     photographersSection.appendChild(userCardDOM);
-
 }
+// function displayPhotographerCounter(totalMediaLikeCountrice) {
+//     displayImage(photographerMedia);
+//     const photographersSection = document.querySelector("main");
+//     const counterInfos = displayCounterInfos(price);
+//     const userCardDOM = counterInfos.getCardDOM();
+//     photographersSection.appendChild(userCardDOM);
+// }
+
 
 async function init() {
     // Récupère les datas des photographes
