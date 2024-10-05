@@ -2,7 +2,7 @@
 export function displayImage(photographerMedia) {
     const { image, video, title, likes, link, tags, id, footer, photographerId } = photographerMedia;
     const picture = `assets/media/${photographerId}/${image}`;
-    const svg = `assets/svg/heart.svg`;
+    const svg = `assets/svg/heart-red.svg`;
     function getMediaCardDOM() {
         const card = document.createElement('div');
         card.classList.add('photographer-media');

@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #FAFAFA;
+    background-color: white;
 }
 #section{
     width: 30%;
@@ -45,7 +45,7 @@ main .page :nth-child(2){
     display: grid;
     gap: 1,5 rem;
     padding: auto;
-    background-color: white;
+    background-color: #FAFAFA;
     margin-inline: 100px;
     grid-template-columns: repeat(3 , 1fr);
 }
@@ -62,8 +62,6 @@ main .page :nth-child(2){
 #contact_modal {
     display: none;
 }
-
-
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -80,7 +78,6 @@ main .page :nth-child(2){
         display: none;
     } */
 }
-
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -158,19 +155,19 @@ form textarea {
   /* gallery */
   .photographer-all-img{
     height: 400px;
-    width: 400px;
+    width: 100%;
     border-radius: 2%;
     object-fit: cover;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    column-gap: 100px;
     margin-top: 50px;
   }
 .photograph-galery_content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 10px;
+    margin: 100px;
 }
   /* likes  */
   .photographer-like{
@@ -181,16 +178,18 @@ form textarea {
     margin-top: 20px;
   }
 .heart{
-    fill: red;
+    width: 20px;
+    height: 20px;
+
+    
 }
 .card-description{
     display: flex;
     gap: 20px;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 400;
     color: #901C1C;
     margin-right: 80px;
-    width: 65%;
     align-items: center;
     justify-content: space-between;
 }

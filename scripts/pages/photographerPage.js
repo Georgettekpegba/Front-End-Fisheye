@@ -3,7 +3,7 @@ import { displayModal, closeModal } from '../utils/contactForm.js';
 import { getMedia } from '../api/media.js';
 import { photographerMainTemplate } from '../templates/photographerMainTemplate.js';
 import { mediaFactory } from '../factory/mediaFactory.js';
-import { lightBox } from '../templates/lightBox.js';
+import { displayLightBox } from '../templates/displayLightBox.js';
 import { displayCounterInfos } from '../templates/displaycounterInfos.js';
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
@@ -34,14 +34,14 @@ function displayPhotographerMedia(mediaList) {
 
 }
 // display lightbox on click on the card
-function displayLightBox(media) {
-    const lightBox = document.querySelector(".lightbox_wrapper wrapper");
-    const lightBoxClose = document.querySelector(".lbtn_close_lightbox btn_close");
-    // lightBoxClose.addEventListener("click", () => {
-    //     lightBox.classList.remove("open");
-    // });
+// function displayLightBox(media) {
+//     const lightBox = document.querySelector(".lightbox_wrapper");
+//     const lightBoxClose = document.querySelector(".lbtn_close_lightbox btn_close");
+//     lightBoxClose.addEventListener("click", () => {
+//         lightBox.classList.remove("open");
+//     });
 
-}
+// }
 //
 function displayPhotographerCounter(price,) {
     displayCounterInfos(price);
@@ -66,7 +66,7 @@ async function init() {
     console.log(photographer, photographerMedia);
     displayPhotographerSinglePage(photographer);
     displayPhotographerMedia(photographerMedia)
-    displayLightBox(photographerMedia);
+    // displayLightBox(photographerMedia);
     displayPhotographerCounter(photographer.price);
 
 

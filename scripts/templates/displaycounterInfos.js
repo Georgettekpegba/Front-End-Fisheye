@@ -1,6 +1,6 @@
 // media sections
 export function displayCounterInfos(price) {
-    const svg = `assets/svg/heart.svg`;
+    const svg = `assets/svg/heart-black.svg`;
     function getCardDOM() {
         const article = document.createElement('article');
         // likes

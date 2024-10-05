@@ -1,5 +1,5 @@
 // media sections
-export function lightBox(photographerMedia) {
+export function displayLightBox(media) {
     const { image, card, title, tags, id, photographerId } = photographerMedia;
     const picture = `assets/media/${photographerId}/${image}`;
     function getMediaCardDOM() {
@@ -24,6 +24,19 @@ export function lightBox(photographerMedia) {
         link.appendChild(img);
         // access to the lightbox
         const lightBox = document.querySelector(".lightbox_wrapper");
+        // add event listener to open the lightbox
+        link.addEventListener('click', function () {
+            lightBox.style.display = 'block';
+            const lightBoxContent = document.querySelector('.lightbox_content');
+            const lightBoxImg = document.createElement('img');
+            lightBoxImg.src = picture;
+            lightBoxContent.appendChild(lightBoxImg);
+            const close = document.querySelector('.close');
+            close.addEventListener('click', function () {
+                lightBox.style.display = 'none';
+                lightBoxContent.removeChild(lightBoxImg);
+            });
+        });
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
         console.log(gallery);
