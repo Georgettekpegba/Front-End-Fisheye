@@ -7,7 +7,6 @@ import { displayLightBox } from '../templates/displayLightBox.js';
 import { displayCounterInfos } from '../templates/displaycounterInfos.js';
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
-console.log(contactFormBtn);
 const contactFormClose = document.querySelector(".contact_close_btn");
 // modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 contactFormBtn.addEventListener('click', displayModal);
@@ -15,7 +14,6 @@ contactFormClose.addEventListener("click", closeModal);
 // get every photographer id
 const url = new URL(window.location.href);
 const id = url.searchParams.get('id');
-console.log(id);
 // diplay pfotographer
 function displayPhotographerSinglePage(photographer) {
     const photographersSection = document.querySelector("main");
@@ -31,17 +29,40 @@ function displayPhotographerMedia(mediaList) {
         const mediaCardDOM = photographerMedia.getMediaCardDOM();
         photographersGallery.appendChild(mediaCardDOM);
     });
+    const allMedia = document.querySelectorAll('.photographer-all-img');
+    allMedia.forEach(media => {
+        media.addEventListener('click', (event) => {
+
+            const lightboxImg = document.create('img');
+            lightboxImg = img.src
+            lightboxImg = img.src.index
+            console.log(event.target.src);
+        }
+        )
+    }
+
+    )
 
 }
 // display lightbox on click on the card
-// function displayLightBox(media) {
+// function displayPhotograherZoom(media) {
+//     // displayPhotograherZoom(media);
 //     const lightBox = document.querySelector(".lightbox_wrapper");
-//     const lightBoxClose = document.querySelector(".lbtn_close_lightbox btn_close");
-//     lightBoxClose.addEventListener("click", () => {
-//         lightBox.classList.remove("open");
+//     // find the media in the array
+//     // const mediaId = media.dataset.media;
+//     // const mediaClick = photographerMedia.find(media => media.id === mediaId);
+//     media.forEach(media => {
+//         const photographerMedia = displayLightBox(media);
+//         const mediaCardDOM = photographerMedia.getMediaCardDOM();
+//         lightBox.appendChild(mediaCardDOM);
 //     });
-
+//     console.log(lightBox);
+//     // const lightBoxClose = document.querySelector(".lbtn_close_lightbox btn_close");
+//     // lightBoxClose.addEventListener("click", () => {
+//     //     lightBox.classList.remove("open");
+//     // });
 // }
+
 //
 function displayPhotographerCounter(price,) {
     displayCounterInfos(price);
@@ -62,13 +83,9 @@ function displayPhotographerCounter(price,) {
 async function init() {
     // Récupère les datas des photographes
     const { photographer, photographerMedia } = await getMedia(id);
-
-    console.log(photographer, photographerMedia);
     displayPhotographerSinglePage(photographer);
     displayPhotographerMedia(photographerMedia)
-    // displayLightBox(photographerMedia);
+    // displayPhotograherZoom(photographerMedia)
     displayPhotographerCounter(photographer.price);
-
-
 }
 init();
