@@ -30,13 +30,17 @@ function displayPhotographerMedia(mediaList) {
         photographersGallery.appendChild(mediaCardDOM);
     });
     const allMedia = document.querySelectorAll('.photographer-all-img');
-    allMedia.forEach(media => {
+    allMedia.forEach((media, index) => {
         media.addEventListener('click', (event) => {
+            console.log('toto', event.target);
+            console.log('image', mediaList[index]);
+            // displayLightBox(mediaList[index]);
+            const lightBoxMedia = displayLightBox(mediaList[index]);
+            const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
+            const lightboxWrapper = document.querySelector('.lightbox_wrapper');
+            lightboxWrapper.appendChild(mediaCardDOM);
 
-            const lightboxImg = document.create('img');
-            lightboxImg = img.src
-            lightboxImg = img.src.index
-            console.log(event.target.src);
+
         }
         )
     }
