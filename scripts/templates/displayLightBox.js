@@ -2,7 +2,6 @@
 export function displayLightBox(photographerMedia) {
     const { image, id, mediaId, photographerId } = photographerMedia;
     const picture = `assets/media/${photographerId}/${image}`;
-    const svg = `assets/svg/close.svg`;
     function getMediaCardDOM() {
         const card = document.createElement('div');
         card.classList.add('photographer-media');
@@ -15,22 +14,22 @@ export function displayLightBox(photographerMedia) {
         img.src = picture;
         img.classList.add("photographer-all-img");
         // svg
-        const svgImage = document.createElement('img');
-        svgImage.src = svg;
-        svgImage.classList.add('close');
+        const btnClose = document.querySelector('.btn_close');
         // access to the lightbox
         // add event listener to open the lightbox
 
-        // close.addEventListener('click', function () {
-        //     (document.querySelector(".lightbox_wrapper")).style.display = 'block';
-        //     lightBoxContent.removeChild(lightBoxImg);
-        // });
-        (document.querySelector(".lightbox_wrapper")).appendChild(card);
+        const lightboxWrapper = document.querySelector(".lightbox_wrapper");
+        lightboxWrapper.style.display = 'flex';
+
+        lightboxWrapper.appendChild(card);
         card.appendChild(media);
         media.appendChild(img);
-        (document.querySelector(".lightbox_wrapper")).appendChild(svgImage);
+        lightboxWrapper.appendChild(btnClose);
+        btnClose.addEventListener('click', function () {
+            lightboxWrapper.style.display = 'none';
+            card.remove();
+        });
         return card;
     }
     return { getMediaCardDOM };
-
 }

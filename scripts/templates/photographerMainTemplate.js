@@ -1,4 +1,3 @@
-
 export function photographerMainTemplate(data) {
     // const card = (data) => {
     const { name, portrait, city, country, tagline, galery, photo, id } = data;

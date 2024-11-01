@@ -34,11 +34,18 @@ function displayPhotographerMedia(mediaList) {
         media.addEventListener('click', (event) => {
             console.log('toto', event.target);
             console.log('image', mediaList[index]);
-            // displayLightBox(mediaList[index]);
+            displayLightBox(mediaList[index]);
             const lightBoxMedia = displayLightBox(mediaList[index]);
             const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
             const lightboxWrapper = document.querySelector('.lightbox_wrapper');
             lightboxWrapper.appendChild(mediaCardDOM);
+            // console.log(lightBoxMedia);
+            // console.log(lightboxWrapper);
+            // const btnNext = document.querySelector('.btn_next');
+            // const btnPrevious = document.querySelector('.btn_previous');
+            // btnNext.addEventListener('click', (event) => {
+            //     const card = document.querySelector('.Next media');
+            // })
 
 
         }
