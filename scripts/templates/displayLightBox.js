@@ -5,7 +5,7 @@ export function displayLightBox(index, mediaArray) {
         let photographerMedia = mediaArray[currentIndex];
         const { image, video, photographerId } = photographerMedia;
         const picture = `assets/media/${photographerId}/${image}`;
-        const movie = `assets/media/${photographerId}/${video}`;
+        const videoUrl = `assets/media/${photographerId}/${video}`;
         const card = document.createElement('div');
         card.classList.add('photographer-media');
         const media = document.createElement('div');
@@ -17,9 +17,22 @@ export function displayLightBox(index, mediaArray) {
         img.src = picture;
         img.classList.add("photographer-all-img");
         // video
+        // const videoCard = document.createElement('video');
+        // videoCard.src = movie;
+        // videoCard.classList.add("photographer-all-video");
         const videoCard = document.createElement('video');
-        videoCard.src = movie;
-        videoCard.classList.add("photographer-all-video");
+        const source = document.createElement('source');
+        source.src = videoUrl;
+        videoCard.appendChild(source);
+        // img.alt = `Portrait de ${name}`;
+        // videoCard.classList.add("photographer-all-img");
+        // @event listeners
+        videoCard.addEventListener('click', () => {
+            videoCard.play()
+                .catch((error) => {
+                    document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
+                });
+        });
         // svg
         const btnClose = document.querySelector('.btn_close');
         const btnNext = document.querySelector('.btn_next');
@@ -44,10 +57,16 @@ export function displayLightBox(index, mediaArray) {
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
             img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
+            videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
         });
         lightboxWrapper.appendChild(btnPrevious);
         btnPrevious.addEventListener('click', function () {
-            console.log('previous');
+            currentIndex = currentIndex - 1;
+            console.log('next');
+            photographerMedia = mediaArray[currentIndex];
+            console.log(photographerMedia);
+            img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
+            videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
         });
         return card;
     }

@@ -27,19 +27,6 @@ export function displayVideo(photographerMedia) {
                 });
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         // carddescription
         const cardDescription = document.createElement('div');
         cardDescription.classList.add('card-description');

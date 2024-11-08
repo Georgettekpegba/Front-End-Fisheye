@@ -5,6 +5,7 @@ import { photographerMainTemplate } from "../templates/photographerMainTemplate.
 import { mediaFactory } from "../factory/mediaFactory.js";
 import { displayLightBox } from "../templates/displayLightBox.js";
 import { displayCounterInfos } from "../templates/displaycounterInfos.js";
+import { photographerFilter } from "../templates/tagFilter.js";
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 const contactFormClose = document.querySelector(".contact_close_btn");
@@ -17,6 +18,13 @@ const id = url.searchParams.get("id");
 function displayPhotographerSinglePage(photographer) {
     const photographersSection = document.querySelector("main");
     const photographerModel = photographerMainTemplate(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
+}
+// filter by popularity name title
+function filterByPopularity(photographerMedia) {
+    const photographersSection = document.querySelector("main");
+    const photographerModel = photographerFilter(photographerMedia);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
 }
@@ -58,5 +66,6 @@ async function init() {
     displayPhotographerSinglePage(photographer);
     displayPhotographerMedia(photographerMedia);
     displayPhotographerCounter(photographer.price);
+    filterByPopularity(photographerMedia);
 }
 init();

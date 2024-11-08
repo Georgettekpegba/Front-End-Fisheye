@@ -1,4 +1,4 @@
-export function photographerMainTemplate(data) {
+export function photographerFilter(data) {
     // const card = (data) => {
     const { name, portrait, city, country, tagline, galery, photo, id } = data;
     // use id later to get the photographer's photos
@@ -29,20 +29,30 @@ export function photographerMainTemplate(data) {
         // blason photographer
         const slogan = document.createElement('p');
 
-        slogan.textContent = tagline;
-        // accessing photographer header section
-        const header = document.querySelector('.photograph-header');
-        const btn = document.querySelector('.contact_button');
-        header.insertBefore(article, btn);
+        // slogan.textContent = tagline;
+        // // accessing photographer header section
+        // const header = document.querySelector('.photograph-header');
+        // const btn = document.querySelector('.contact_button');
+        // header.insertBefore(article, btn);
+        // select.addEventListener("change", (event) => {
+        //     const value = event.target.value;
+        //     console.log(value);
+        // })
+
+        // const select = document.querySelector(".filter");
+        // select.addEventListener("change", (event) => {
+        //     const value = event.target.value;
+        //     console.log(value);
+        // });
 
 
         // article.appendChild(title);
-        header.appendChild(img);
-        // article.appendChild(location);
-        header.appendChild(location);
+        // header.appendChild(img);
+        // // article.appendChild(location);
+        // header.appendChild(location);
         // article.appendChild(slogan);
-        header.appendChild(slogan);
-        header.appendChild(photographerInfoWrapper)
+        // header.appendChild(slogan);
+        // header.appendChild(photographerInfoWrapper)
         photographerInfoWrapper.appendChild(photographerName)
         photographerInfoWrapper.appendChild(location)
         photographerInfoWrapper.appendChild(slogan)
