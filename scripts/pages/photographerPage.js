@@ -13,11 +13,11 @@ contactFormBtn.addEventListener("click", displayModal);
 contactFormClose.addEventListener("click", closeModal);
 const selectElement = document.querySelector("#sort-select");
 // Add an event listener for the 'change' event
-selectElement.addEventListener('change', (event) => {
-    const selectedValue = event.target.value;
-    console.log("Selected value:", selectedValue);
-    filterData();
-});
+// selectElement.addEventListener('change', (event) => {
+//     const selectedValue = event.target.value;
+//     console.log("Selected value:", selectedValue);
+//     filterData();
+// });
 
 
 // get every photographer id
@@ -65,10 +65,11 @@ function displayPhotographerCounter(price) {
 function filterData(filter) {
 
     // const popularity = data.filter((popularity) => data.likes);
-    if (filter === "pop") { media.sort(media.sort((a, b) => new Date(b.date) - new Date(a.date))};
-    const filter =
-        displayPhotographerMedia();
-    removeEventListener.card();
+    // if (filter === "pop") { media.sort(media.sort((a, b) => new Date(b.date) - new Date(a.date))};
+    // const filter =
+    //     displayPhotographerMedia();
+    // removeEventListener.card();
+    console.log(filter);
     // const date = data.filter((data) => data.date);
     // const title = data.filter((data) => data.title);
     // popularity.sort((a, b) => b.likes - a.likes);
