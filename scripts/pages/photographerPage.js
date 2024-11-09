@@ -5,12 +5,21 @@ import { photographerMainTemplate } from "../templates/photographerMainTemplate.
 import { mediaFactory } from "../factory/mediaFactory.js";
 import { displayLightBox } from "../templates/displayLightBox.js";
 import { displayCounterInfos } from "../templates/displaycounterInfos.js";
-import { photographerFilter } from "../templates/tagFilter.js";
+let media = [];
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 const contactFormClose = document.querySelector(".contact_close_btn");
 contactFormBtn.addEventListener("click", displayModal);
 contactFormClose.addEventListener("click", closeModal);
+const selectElement = document.querySelector("#sort-select");
+// Add an event listener for the 'change' event
+selectElement.addEventListener('change', (event) => {
+    const selectedValue = event.target.value;
+    console.log("Selected value:", selectedValue);
+    filterData();
+});
+
+
 // get every photographer id
 const url = new URL(window.location.href);
 const id = url.searchParams.get("id");
@@ -18,13 +27,6 @@ const id = url.searchParams.get("id");
 function displayPhotographerSinglePage(photographer) {
     const photographersSection = document.querySelector("main");
     const photographerModel = photographerMainTemplate(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
-}
-// filter by popularity name title
-function filterByPopularity(photographerMedia) {
-    const photographersSection = document.querySelector("main");
-    const photographerModel = photographerFilter(photographerMedia);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
 }
@@ -60,12 +62,29 @@ function displayPhotographerCounter(price) {
     photographersSection.appendChild(userCardDOM);
 }
 
+function filterData(filter) {
+
+    // const popularity = data.filter((popularity) => data.likes);
+    if (filter === "pop") { media.sort(media.sort((a, b) => new Date(b.date) - new Date(a.date))};
+    const filter =
+        displayPhotographerMedia();
+    removeEventListener.card();
+    // const date = data.filter((data) => data.date);
+    // const title = data.filter((data) => data.title);
+    // popularity.sort((a, b) => b.likes - a.likes);
+    // console.log(popularity);
+    // date.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // title.sort((a, b) => a.title.localeCompare(b.title));
+}
+
 async function init() {
     // Récupère les datas des photographes
     const { photographer, photographerMedia } = await getMedia(id);
+    media = photographerMedia;
     displayPhotographerSinglePage(photographer);
     displayPhotographerMedia(photographerMedia);
     displayPhotographerCounter(photographer.price);
-    filterByPopularity(photographerMedia);
+
+
 }
 init();

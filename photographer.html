@@ -50,13 +50,14 @@
 			</div>
 		</div>
     <!-- galery -->
-    <section class="photograph-galery">
+    <section id="sort-select" class="photograph-galery">
       <div class="photograph-galery_header">
         <div class="photograph-galery_header_filter">
+          <label for="">Trier par</label>
           <select name="photographer-tags" id="section">
-          <button class="photograph-galery__header__filter__button">Popularité</button>
-          <button class="photograph-galery__header__filter__button">Date</button>
-          <button class="photograph-galery__header__filter__button">Titre</button>
+            <option value="pop" class="photograph-galery__header__filter__button" selected>Popularité<option>
+            <option value="date" class="photograph-galery__header__filter__button">Date</option>
+            <option value="title" class="photograph-galery__header__filter__button">Titre</option>
           </select>
         </div>
         <div class="photograph-galery_content">  

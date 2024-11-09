@@ -15,13 +15,14 @@ export function displayLightBox(index, mediaArray) {
         // on rajoute l'image du photographe
         const img = document.createElement('img');
         img.src = picture;
-        img.classList.add("photographer-all-img");
+        img.classList.add("photographer-all-video");
         // video
         // const videoCard = document.createElement('video');
         // videoCard.src = movie;
         // videoCard.classList.add("photographer-all-video");
         const videoCard = document.createElement('video');
         const source = document.createElement('source');
+        videoCard.classList.add("photographer-all-img");
         source.src = videoUrl;
         videoCard.appendChild(source);
         // img.alt = `Portrait de ${name}`;
