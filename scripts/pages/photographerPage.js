@@ -13,12 +13,41 @@ contactFormBtn.addEventListener("click", displayModal);
 contactFormClose.addEventListener("click", closeModal);
 const selectElement = document.querySelector("#sort-select");
 // Add an event listener for the 'change' event
-// selectElement.addEventListener('change', (event) => {
-//     const selectedValue = event.target.value;
-//     console.log("Selected value:", selectedValue);
-//     filterData();
-// });
+selectElement.addEventListener('change', (event) => {
+    const selectedValue = event.target.value;
+    console.log("Selected value:", selectedValue);
+    filterData("pop");// pop < test
+});
+function filterData(filter) {
+    let photographersGallery = document.querySelector(".photograph-galery_content");
+    console.log(filter);
+    photographersGallery.textContent = "";
+    if (filter === "pop") {
 
+        media = media.sort((a, b) => {
+            console.log(media);
+            return b.likes - a.likes;
+        })
+    }
+    else if (filter === "date") {
+        media = media.sort((a, b) => {
+
+            return new Date(b.date) - new Date(a.date);
+        })
+    }
+    else if (filter === "title") {
+
+        media = media.sort((a, b) => {
+
+            return a.title.localeCompare(b.title);
+
+        })
+    }
+    // lightBox.innerHTML = "";
+    displayPhotographerMedia(media);
+    console.log("Gallery updated with sorted media.");
+    console.log(media);
+}
 
 // get every photographer id
 const url = new URL(window.location.href);
@@ -44,8 +73,8 @@ function displayPhotographerMedia(mediaList) {
     const allMedia = document.querySelectorAll(".photographer-all-img");
     allMedia.forEach((media, index) => {
         media.addEventListener("click", (event) => {
-            console.log("toto", event.target);
-            console.log("image", mediaList[index]);
+            // console.log("toto", event.target);
+            // console.log("image", mediaList[index]);
             const lightBoxMedia = displayLightBox(index, mediaList);
             const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
             const lightboxWrapper = document.querySelector(".lightbox_wrapper");
@@ -62,21 +91,7 @@ function displayPhotographerCounter(price) {
     photographersSection.appendChild(userCardDOM);
 }
 
-function filterData(filter) {
 
-    // const popularity = data.filter((popularity) => data.likes);
-    // if (filter === "pop") { media.sort(media.sort((a, b) => new Date(b.date) - new Date(a.date))};
-    // const filter =
-    //     displayPhotographerMedia();
-    // removeEventListener.card();
-    console.log(filter);
-    // const date = data.filter((data) => data.date);
-    // const title = data.filter((data) => data.title);
-    // popularity.sort((a, b) => b.likes - a.likes);
-    // console.log(popularity);
-    // date.sort((a, b) => new Date(b.date) - new Date(a.date));
-    // title.sort((a, b) => a.title.localeCompare(b.title));
-}
 
 async function init() {
     // Récupère les datas des photographes
