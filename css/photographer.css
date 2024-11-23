@@ -227,7 +227,7 @@ form textarea {
     align-items: center;
 }
 /* lightbox frame */
-.photographer-media-1{
+.photographer-media{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,8 +248,8 @@ form textarea {
 .btn_previous{
     position: absolute;
     top: 50%;
-    left: 10px;
-    width: 50px;
+    left: 50px;
+    width: 120px;
     height: 50px;
     border: 0;
     background-color: transparent;
@@ -257,7 +257,7 @@ form textarea {
 .btn_next{
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 120px;
     width: 50px;
     height: 50px;
     border: 0;
