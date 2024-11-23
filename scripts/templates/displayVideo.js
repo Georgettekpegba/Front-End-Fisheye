@@ -1,6 +1,6 @@
 // displauy media video
 export function displayVideo(photographerMedia) {
-    const { image, video, title, likes, price, tags, id, photographerId } = photographerMedia;
+    const { video, title, likes, price, tags, id, photographerId } = photographerMedia;
     const videoUrl = `assets/media/${photographerId}/${video}`;
     const svg = `assets/svg/heart-red.svg`;
     function getMediaCardDOM() {
@@ -54,11 +54,6 @@ export function displayVideo(photographerMedia) {
                 likeNumber.textContent = Number(likeNumber.textContent) + 1;
             }
         );
-        // select setion?????????????????????????????
-        // const selection = document.getElementById('section')
-        // const dropdownHtml = select
-        // selection.innerHTML += dropdownHtml;;
-
 
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
@@ -70,5 +65,5 @@ export function displayVideo(photographerMedia) {
         media.appendChild(cardDescription);
         return card;
     }
-    return { image, video, title, likes, price, tags, id, photographerId, getMediaCardDOM };
+    return { video, title, likes, price, tags, id, photographerId, getMediaCardDOM };
 }

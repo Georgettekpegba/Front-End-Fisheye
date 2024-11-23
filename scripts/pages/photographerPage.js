@@ -23,7 +23,6 @@ function filterData(filter) {
     console.log(filter);
     photographersGallery.textContent = "";
     if (filter === "pop") {
-
         media = media.sort((a, b) => {
             console.log(media);
             return b.likes - a.likes;

@@ -12,28 +12,29 @@ export function displayLightBox(index, mediaArray) {
         media.classList.add('media');
         const cardMedia = document.createElement('div');
         cardMedia.classList.add('media-card');
-        // on rajoute l'image du photographe
-        const img = document.createElement('img');
-        img.src = picture;
-        img.classList.add("photographer-all-video");
-        // video
-        // const videoCard = document.createElement('video');
-        // videoCard.src = movie;
-        // videoCard.classList.add("photographer-all-video");
-        const videoCard = document.createElement('video');
-        const source = document.createElement('source');
-        videoCard.classList.add("photographer-all-img");
-        source.src = videoUrl;
-        videoCard.appendChild(source);
-        // img.alt = `Portrait de ${name}`;
-        // videoCard.classList.add("photographer-all-img");
-        // @event listeners
-        videoCard.addEventListener('click', () => {
-            videoCard.play()
-                .catch((error) => {
-                    document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
-                });
-        });
+        let asset = null;
+        if (image) {
+            // on rajoute l'image du photographe
+            asset = document.createElement('img');
+            asset.src = picture;
+            asset.classList.add("photographer-all-img");
+        }
+        else {
+            asset = document.createElement('video');
+            const source = document.createElement('source');
+            asset.classList.add("photographer-all-video");
+            source.src = videoUrl;
+            asset.appendChild(source);
+            // @event listeners
+            asset.addEventListener('click', () => {
+                asset.play()
+                    .catch((error) => {
+                        document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
+                    });
+            });
+
+        }
+
         // svg
         const btnClose = document.querySelector('.btn_close');
         const btnNext = document.querySelector('.btn_next');
@@ -44,8 +45,7 @@ export function displayLightBox(index, mediaArray) {
         lightboxWrapper.style.display = 'flex';
         lightboxWrapper.appendChild(card);
         card.appendChild(media);
-        media.appendChild(img);
-        media.appendChild(videoCard);
+        media.appendChild(asset);
         lightboxWrapper.appendChild(btnClose);
         btnClose.addEventListener('click', function () {
             lightboxWrapper.style.display = 'none';
@@ -54,20 +54,24 @@ export function displayLightBox(index, mediaArray) {
         lightboxWrapper.appendChild(btnNext);
         btnNext.addEventListener('click', function () {
             currentIndex = currentIndex + 1;
-            console.log('next');
+            if (currentIndex >= mediaArray.length) {
+                currentIndex = 0;
+            }
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
-            img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
-            videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
+            asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
+
         });
         lightboxWrapper.appendChild(btnPrevious);
         btnPrevious.addEventListener('click', function () {
             currentIndex = currentIndex - 1;
+            if (currentIndex < 0) {
+                currentIndex = mediaArray.length - 1;
+            }
             console.log('next');
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
-            img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
-            videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
+            asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
         });
         return card;
     }
