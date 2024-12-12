@@ -13,26 +13,29 @@ export function displayLightBox(index, mediaArray) {
         const cardMedia = document.createElement('div');
         cardMedia.classList.add('media-card');
         let asset = null;
-
+        // on rajoute l'image du photographe
+        const img = document.createElement('img');
+        img.classList.add("photographer-all-video");
+        // video
+        const videoCard = document.createElement('video');
+        const source = document.createElement('source');
+        videoCard.classList.add("photographer-all-img");
+        videoCard.appendChild(source);
         if (image) {
             // on rajoute l'image du photographe
-            asset = document.createElement('img');
-            asset.src = picture;
-            asset.classList.add("photographer-all-img");
+
+            img.src = picture;
+
         }
         else {
-            asset = document.createElement('video');
-            const source = document.createElement('source');
-            asset.classList.add("photographer-all-video");
             source.src = videoUrl;
-            asset.appendChild(source);
-            // @event listeners
-            asset.addEventListener('click', () => {
-                asset.play()
-                    .catch((error) => {
-                        document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
-                    });
-            });
+            // // @event listeners
+            // videoCard.addEventListener('click', () => {
+            //     videoCard.play()
+            //         .catch((error) => {
+            //             document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
+            //         });
+            // });
 
         }
 
@@ -46,7 +49,8 @@ export function displayLightBox(index, mediaArray) {
         lightboxWrapper.style.display = 'flex';
         lightboxWrapper.appendChild(card);
         card.appendChild(media);
-        media.appendChild(asset);
+        media.appendChild(img);
+        media.appendChild(videoCard);
         lightboxWrapper.appendChild(btnClose);
         btnClose.addEventListener('click', function () {
             lightboxWrapper.style.display = 'none';
@@ -60,20 +64,27 @@ export function displayLightBox(index, mediaArray) {
             }
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
-
-            asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
+            img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
+            videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
+            // asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
         });
         lightboxWrapper.appendChild(btnPrevious);
         btnPrevious.addEventListener('click', function () {
             currentIndex = (currentIndex - 1) % mediaArray.length;
             if (currentIndex < 0) {
                 currentIndex = mediaArray.length - 1;
-                remove(card)
             }
             console.log('next');
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
-            asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
+            // asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
+            if (photographerMedia.image) {
+                img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
+            }
+            else {
+                videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
+            }
+
         });
 
         return card;

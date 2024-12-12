@@ -239,9 +239,9 @@ form textarea {
     /* border: 1px solid aqua; */
 }
 /* SVG */
-.btn_close{
+.btn_close {
     position: absolute;
-    top: 120px;
+    top: 220px;
     right: 80px;
     width: 80px;
     opacity: 0.5;
