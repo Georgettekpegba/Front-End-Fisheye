@@ -13,7 +13,6 @@ export function displayLightBox(index, mediaArray) {
         const cardMedia = document.createElement('div');
         cardMedia.classList.add('media-card');
         let asset = null;
-
         if (image) {
             // on rajoute l'image du photographe
             asset = document.createElement('img');
@@ -54,18 +53,18 @@ export function displayLightBox(index, mediaArray) {
         });
         lightboxWrapper.appendChild(btnNext);
         btnNext.addEventListener('click', function () {
-            currentIndex = (currentIndex + 1) % mediaArray.length;
+            currentIndex = currentIndex + 1;
             if (currentIndex >= mediaArray.length) {
                 currentIndex = 0;
             }
             photographerMedia = mediaArray[currentIndex];
             console.log(photographerMedia);
-
             asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
+
         });
         lightboxWrapper.appendChild(btnPrevious);
         btnPrevious.addEventListener('click', function () {
-            currentIndex = (currentIndex - 1) % mediaArray.length;
+            currentIndex = currentIndex - 1;
             if (currentIndex < 0) {
                 currentIndex = mediaArray.length - 1;
             }
@@ -74,7 +73,6 @@ export function displayLightBox(index, mediaArray) {
             console.log(photographerMedia);
             asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
         });
-
         return card;
     }
     return { getMediaCardDOM };

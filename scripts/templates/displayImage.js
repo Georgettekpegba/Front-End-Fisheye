@@ -43,19 +43,7 @@ export function displayImage(photographerMedia) {
                 likeNumber.textContent = Number(likeNumber.textContent) + 1;
             }
         );
-        // card.addEventListener('click',
-        //     () => {
-        //         const mediaCardDOM = photographerMedia.getMediaCardDOM();
-        //         lightBox.appendChild(mediaCardDOM);
-        //         displayLightBox();
-        //         console.log('====================================');
-        //         console.log(displayLightBox);
-        //         console.log('====================================');
-        //     });
-        // select setion?????????????????????????????
-        // const selection = document.getElementById('section')
-        // const dropdownHtml = select
-        // selection.innerHTML += dropdownHtml;;
+
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
         gallery.appendChild(card);

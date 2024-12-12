@@ -165,8 +165,9 @@ form textarea {
   }
   /* gallery */
   .photographer-all-img {
-    height: 400px;
+    height: 100%;
     width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 2%;
     object-fit: cover;
     display: flex;
@@ -189,18 +190,20 @@ form textarea {
     margin-top: 20px;
   }
 .heart{
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
 
     
 }
-.card-description{
+.card-description {
     display: flex;
     gap: 20px;
-    font-size: 25px;
+    font-size: 12px;
     font-weight: 400;
+    width: 100%;
     color: #901C1C;
-    margin-right: 80px;
+    /* margin-right: 80px; */
     align-items: center;
     justify-content: space-between;
 }
@@ -227,7 +230,7 @@ form textarea {
     align-items: center;
 }
 /* lightbox frame */
-.photographer-media-1{
+.photographer-media{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,8 +251,8 @@ form textarea {
 .btn_previous{
     position: absolute;
     top: 50%;
-    left: 10px;
-    width: 50px;
+    left: 50px;
+    width: 120px;
     height: 50px;
     border: 0;
     background-color: transparent;
@@ -257,7 +260,7 @@ form textarea {
 .btn_next{
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 120px;
     width: 50px;
     height: 50px;
     border: 0;
