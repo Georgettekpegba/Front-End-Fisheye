@@ -227,19 +227,12 @@ form textarea {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    box-sizing: content-box;
+    aspect-ratio: 1/1;
+    
 }
-/* .lightbox_wrapper .photographer-all-img .photographer-all-video {
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 /* lightbox frame */
-.photographer-media{
-    border: solid 1px aqua;
+.photographer-media .lightbox_content{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,15 +241,14 @@ form textarea {
     /* border: 1px solid aqua; */
 }
 
-/* light box square css */
+
 
 /* SVG */
 .btn_close{
     position: absolute;
-    top: 120px;
+    top: 5%;
     right: 80px;
     width: 80px;
-    opacity: 0.5;
     border: 0;
     background-color: transparent;
     z-index:1010;  
