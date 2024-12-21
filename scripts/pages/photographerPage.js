@@ -9,6 +9,13 @@ let media = [];
 // @event
 const contactFormBtn = document.querySelector(".contact_button");
 const contactFormClose = document.querySelector(".contact_close_btn");
+
+// **********************************************************   
+// accessibility
+contactFormBtn.setAttribute("aria-label", "Open contact form");
+contactFormBtn.setAttribute("role", "button");
+
+
 contactFormBtn.addEventListener("click", displayModal);
 contactFormClose.addEventListener("click", closeModal);
 const selectElement = document.querySelector("#sort-select");
@@ -79,8 +86,24 @@ function displayPhotographerMedia(mediaList) {
             const lightboxWrapper = document.querySelector(".lightbox_wrapper");
             lightboxWrapper.appendChild(mediaCardDOM);
         });
+        // media.addEventListener('keypress', function (event) {
+        //     event.preventDefault()
+        //     console.log(event.key);
+
+        //     if (event.key === "Enter") {
+        //         // () => {
+        //         const lightBoxMedia = displayLightBox(index, mediaList);
+        //         const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
+        //         const lightboxWrapper = document.querySelector(".lightbox_wrapper");
+        //         lightboxWrapper.appendChild(mediaCardDOM);
+
+        //         // }
+        //     }
+        // })
     });
 }
+
+
 
 function displayPhotographerCounter(price) {
     displayCounterInfos(price);
