@@ -45,7 +45,6 @@ export function displayImage(photographerMedia) {
         svgImage.src = svg;
         svgImage.classList.add('heart');
         // accessibility
-        svgImage.setAttribute('tabindex', '0');
         svgImage.setAttribute('aria-label', 'likes');
         svgImage.setAttribute('alt', 'likes');
         likeBtn.appendChild(likeNumber);
