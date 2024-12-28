@@ -11,6 +11,8 @@ export function photographerTemplate(data) {
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
         link.setAttribute('aria-label', `Voir la page de ${name}`);
+        link.setAttribute('tabindex', '0');
+
 
         // on rajoute l'image du photographe
         const img = document.createElement('img');

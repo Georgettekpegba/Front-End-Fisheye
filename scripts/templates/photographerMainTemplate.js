@@ -10,6 +10,7 @@ export function photographerMainTemplate(data) {
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
         link.setAttribute('aria-label', `Voir la page de ${name}`);
+        link.setAttribute('tabindex', '0');
 
         // on rajoute l'image du photographe
         const img = document.createElement('img');
@@ -23,7 +24,7 @@ export function photographerMainTemplate(data) {
         photographerName.textContent = name;
 
         // location photographer
-        const location = document.createElement('h3');
+        const location = document.createElement('h1');
         location.textContent = `${city}, ${country}`;
         location.classList.add('photographer-location');
         // blason photographer

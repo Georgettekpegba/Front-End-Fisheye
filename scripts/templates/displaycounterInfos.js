@@ -13,6 +13,10 @@ export function displayCounterInfos(price) {
         const svgImage = document.createElement('img');
         svgImage.src = svg;
         svgImage.classList.add('heart');
+        // accessibility
+        svgImage.setAttribute('tabindex', '0');
+        svgImage.setAttribute('aria-label', 'likes');
+        svgImage.setAttribute('alt', 'likes');
         // // likes
         const likeWrapper = document.createElement('div');
         likeWrapper.classList.add('like-wrapper');

@@ -13,11 +13,18 @@ export function displayImage(photographerMedia) {
         // cardMedia.classList.add('media-card');
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
+        link.setAttribute('tabindex', '0');
+        link.setAttribute('aria-label', title);
+        link.setAttribute('alt', title);
         // on rajoute l'image du photographe
         const img = document.createElement('img');
         img.src = picture;
+        // acessibility
         img.classList.add("photographer-all-img");
         img.setAttribute('tabindex', '0');
+        img.setAttribute('aria-label', title);
+        img.setAttribute('alt', title);
+
         // carddescription
         const cardDescription = document.createElement('div');
         cardDescription.classList.add('card-description');
@@ -37,6 +44,10 @@ export function displayImage(photographerMedia) {
         const svgImage = document.createElement('img');
         svgImage.src = svg;
         svgImage.classList.add('heart');
+        // accessibility
+        svgImage.setAttribute('tabindex', '0');
+        svgImage.setAttribute('aria-label', 'likes');
+        svgImage.setAttribute('alt', 'likes');
         likeBtn.appendChild(likeNumber);
         likeBtn.appendChild(svgImage);
         cardDescription.appendChild(likeBtn);

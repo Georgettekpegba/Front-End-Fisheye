@@ -235,11 +235,8 @@ form textarea {
     
 }
 /* lightbox frame */
-<<<<<<< HEAD
 .photographer-media .lightbox_content{
-=======
 .photographer-media{
->>>>>>> 1e6db49eb44547934612f63ce5a4ad3154d95db5
     display: flex;
     justify-content: center;
     align-items: center;
@@ -253,16 +250,13 @@ form textarea {
 /* SVG */
 .btn_close{
     position: absolute;
-<<<<<<< HEAD
     top: 5%;
     right: 80px;
     width: 80px;
-=======
     top: 120px;
     right: 80px;
     width: 80px;
     opacity: 0.5;
->>>>>>> 1e6db49eb44547934612f63ce5a4ad3154d95db5
     border: 0;
     background-color: transparent;
     z-index:1010;  
@@ -275,10 +269,7 @@ form textarea {
     height: 50px;
     border: 0;
     background-color: transparent;
-<<<<<<< HEAD
     z-index:1010; 
-=======
->>>>>>> 1e6db49eb44547934612f63ce5a4ad3154d95db5
 }
 .btn_next{
     position: absolute;
@@ -288,10 +279,7 @@ form textarea {
     height: 50px;
     border: 0;
     background-color: transparent;
-<<<<<<< HEAD
     z-index:1010; 
-=======
->>>>>>> 1e6db49eb44547934612f63ce5a4ad3154d95db5
 }
 .svgImage{
     width: 50px;
@@ -354,8 +342,7 @@ form textarea {
     right: 35px;
     width: 350px;
     height: 60px;
-    display: flex
-;
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-size: 24px;
@@ -364,9 +351,9 @@ form textarea {
     background-color: #DB8876;
 }
 /*****************************************************************/
-.display-counter-infos-wrap span{
+/* .display-counter-infos-wrap span{
 
-}
+} */
   /*  */
   /* footer */
     footer{

@@ -12,10 +12,19 @@ export function displayVideo(photographerMedia) {
         cardMedia.classList.add('media-card');
         const link = document.createElement('a');
         link.href = `photographer.html?id=${id}`;
+        link.setAttribute('tabindex', '0');
+        link.setAttribute('aria-label', title);
+        link.setAttribute('alt', title);
         // on rajoute l'image du photographe
         const video = document.createElement('video');
         const source = document.createElement('source');
         source.src = videoUrl;
+        // accessibilty
+        video.setAttribute('tabindex', '0');
+        video.setAttribute('aria-label', title);
+        video.setAttribute('alt', title);
+        video.setAttribute('controls', 'controls');
+
         video.appendChild(source);
         // img.alt = `Portrait de ${name}`;
         video.classList.add("photographer-all-img");
@@ -45,6 +54,11 @@ export function displayVideo(photographerMedia) {
         const svgImage = document.createElement('img');
         svgImage.src = svg;
         svgImage.classList.add('heart');
+        // accessibility
+        svgImage.setAttribute('tabindex', '0');
+        svgImage.setAttribute('aria-label', 'likes');
+        svgImage.setAttribute('alt', 'likes');
+
         likeBtn.appendChild(likeNumber);
         likeBtn.appendChild(svgImage);
         cardDescription.appendChild(likeBtn);
