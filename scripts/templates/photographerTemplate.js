@@ -12,12 +12,14 @@ export function photographerTemplate(data) {
         link.href = `photographer.html?id=${id}`;
         link.setAttribute('aria-label', `Voir la page de ${name}`);
         link.setAttribute('tabindex', '0');
+        link.classList.add('img-tr');
 
 
         // on rajoute l'image du photographe
         const img = document.createElement('img');
         img.src = picture;
         img.alt = `Portrait de ${name}`;
+        img.classList.add('photographer-portrait');
 
         // on rajoute les infos photographes
         const photographerName = document.createElement('h1');
