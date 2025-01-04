@@ -54,6 +54,7 @@ export function displayImage(photographerMedia) {
         likeBtn.addEventListener('click',
             () => {
                 likeNumber.textContent = Number(likeNumber.textContent) + 1;
+
             }
         );
         //********************************************** */
