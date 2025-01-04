@@ -40,6 +40,16 @@ main .page :nth-child(3){
 main .page :nth-child(2){
     order: 3;       
 } 
+/* header */
+header {
+    display: flex
+;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    margin: 0 100px;
+}
 .header-title h1{
     color: #D3573C;
     font-size: 48px;
@@ -198,7 +208,7 @@ form textarea {
 .heart{
     width: 20px;
     height: 20px;
-
+    margin-right: auto;
     
 }
 .card-description{
@@ -215,6 +225,8 @@ form textarea {
 .lightbox_wrapper{
     display: none;
     position: fixed;
+    font-size: 24px;
+    font-weight: 500;
     top: 0;
     left: 0;
     width: 100%;
