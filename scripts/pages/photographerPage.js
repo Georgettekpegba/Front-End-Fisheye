@@ -80,9 +80,7 @@ function displayPhotographerMedia(mediaList) {
     });
     const allMedia = document.querySelectorAll(".photographer-all-img");
     allMedia.forEach((media, index) => {
-        media.addEventListener("click", (event) => {
-            // console.log("toto", event.target);
-            // console.log("image", mediaList[index]);
+        media.addEventListener("click", () => {
             const lightBoxMedia = displayLightBox(index, mediaList);
             const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
             const lightboxWrapper = document.querySelector(".lightbox_wrapper");
@@ -91,29 +89,32 @@ function displayPhotographerMedia(mediaList) {
             mediaCardDOM.setAttribute("aria-label", "Open lightbox");
             mediaCardDOM.setAttribute("role", "button");
             mediaCardDOM.focus();
-            // mediaCardDOM.setAttribute("tabindex", "0");
-            // mediaCardDOM.focus();    
-            // mediaCardDOM.setAttribute("tabindex", "0");
             mediaCardDOM
                 .querySelector(".lightbox_close_btn")
                 .addEventListener("onpress", () => {
                     lightboxWrapper.removeChild(mediaCardDOM);
                 });
         });
-        // media.addEventListener('keypress', function (event) {
-        //     event.preventDefault()
-        //     console.log(event.key);
+        // accessibility on press enter on image or title or like button open the light box
+        media.addEventListener('keypress', function (event) {
+            if (event.key === "Enter") {
+                //  
+                const lightBoxMedia = displayLightBox(index, mediaList);
+                const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
+                const lightboxWrapper = document.querySelector(".lightbox_wrapper");
+                lightboxWrapper.appendChild(mediaCardDOM);
+                // accessibility
+                mediaCardDOM.setAttribute("aria-label", "Open lightbox");
+                mediaCardDOM.setAttribute("role", "button");
+                mediaCardDOM.focus();
+                mediaCardDOM
+                    .querySelector(".lightbox_close_btn")
+                    .addEventListener("onpress", () => {
+                        lightboxWrapper.removeChild(mediaCardDOM);
+                    });
+            }
+        })
 
-        //     if (event.key === "Enter") {
-        //         // () => {
-        //         const lightBoxMedia = displayLightBox(index, mediaList);
-        //         const mediaCardDOM = lightBoxMedia.getMediaCardDOM();
-        //         const lightboxWrapper = document.querySelector(".lightbox_wrapper");
-        //         lightboxWrapper.appendChild(mediaCardDOM);
-
-        //         // }
-        //     }
-        // })
     });
 }
 

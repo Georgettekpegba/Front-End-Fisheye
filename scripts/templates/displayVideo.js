@@ -23,7 +23,6 @@ export function displayVideo(photographerMedia) {
         video.setAttribute('tabindex', '0');
         video.setAttribute('aria-label', title);
         video.setAttribute('alt', title);
-        video.setAttribute('controls', 'controls');
 
         video.appendChild(source);
         // img.alt = `Portrait de ${name}`;
@@ -77,6 +76,19 @@ export function displayVideo(photographerMedia) {
         media.appendChild(cardMedia);
         media.appendChild(video);
         media.appendChild(cardDescription);
+
+        // accessibilty onn keypress 2 times on enter open the lightbox
+        link.addEventListener('keypress', function (event) {
+            event.preventDefault()
+            if (event.key === "Enter") {
+                // () => {
+                video.play()
+                    .catch((error) => {
+                        document.querySelector("photographer-all-img").innerHTML = "Erreur: " + error;
+                    });
+                // }
+            }
+        })
         return card;
     }
     return { video, title, likes, price, tags, id, photographerId, getMediaCardDOM };

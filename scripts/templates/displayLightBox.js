@@ -200,6 +200,7 @@ export function displayLightBox(index, mediaArray) {
                 asset = document.createElement("video");
                 const source = document.createElement("source");
                 asset.classList.add("photographer-all-video");
+                asset.setAttribute('controls', 'controls');
                 source.src = videoUrl;
                 asset.appendChild(source);
                 //***************************************************************** */
