@@ -81,6 +81,7 @@ export function displayImage(photographerMedia) {
         media.appendChild(img);
         media.appendChild(cardDescription);
 
+
         return card;
     }
     return { image, video, title, likes, link, tags, id, footer, photographerId, getMediaCardDOM };

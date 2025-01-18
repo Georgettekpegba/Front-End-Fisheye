@@ -69,6 +69,7 @@ export function displayLightBox(index, mediaArray) {
             img.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image}`;
             videoCard.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.video}`;
         });
+
         return card;
     }
     return { getMediaCardDOM };

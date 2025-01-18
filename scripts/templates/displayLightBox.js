@@ -238,6 +238,18 @@ export function displayLightBox(index, mediaArray) {
             asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video
                 }`;
         });
+        // access to the lightbox trought arrow keys and exit with escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowRight') {
+                btnNext.click();
+            }
+            if (event.key === 'ArrowLeft') {
+                btnPrevious.click();
+            }
+            if (event.key === 'Escape') {
+                btnClose.click();
+            }
+        });
         return card;
     }
     return { getMediaCardDOM };
