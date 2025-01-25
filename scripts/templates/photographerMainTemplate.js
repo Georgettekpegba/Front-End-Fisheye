@@ -24,7 +24,7 @@ export function photographerMainTemplate(data) {
         photographerName.textContent = name;
 
         // location photographer
-        const location = document.createElement('h1');
+        const location = document.createElement('h3');
         location.textContent = `${city}, ${country}`;
         location.classList.add('photographer-location');
         // blason photographer

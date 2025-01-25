@@ -251,6 +251,7 @@ export function displayLightBox(index, mediaArray) {
                 btnClose.click();
             }
         });
+
         return card;
     }
     return { getMediaCardDOM };
