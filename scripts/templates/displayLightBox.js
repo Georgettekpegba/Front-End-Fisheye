@@ -57,42 +57,7 @@ export function displayLightBox(index, mediaArray) {
             card.remove();
         });
         //***************************************************************** */
-        // lightboxWrapper.appendChild(btnNext);
-        // btnNext.addEventListener('click', function () {
-        //     currentIndex = (currentIndex + 1) //% mediaArray.length;
-        //     if (currentIndex >= mediaArray.length) {
-        //         currentIndex = 0;
-        //     }
-        //     photographerMedia = mediaArray[currentIndex];
-        //     //***************************************************************** */
-        //     console.log(photographerMedia);
-        //     let asset = null;
-        //     console.log(image); //jonathan
-        //     if (image && image != undefined) {
-        //         // on rajoute l'image du photographe
-        //         asset = document.createElement("img");
-        //         asset.src = picture;
-        //         asset.classList.add("photographer-all-img");
-        //     } else {
-        //         asset = document.createElement("video");
-        //         const source = document.createElement("source");
-        //         asset.classList.add("photographer-all-video");
-        //         source.src = videoUrl;
-        //         asset.appendChild(source);
 
-        //         // @event listeners
-        //         asset.addEventListener("click", () => {
-        //             asset.play().catch((error) => {
-        //                 document.querySelector("photographer-all-img").innerHTML =
-        //                     "Erreur: " + error;
-        //             });
-        //             //***************************************************************** */
-        //         });
-        //     }
-
-        //     //***************************************************************** */
-        //     asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
-        // });
         lightboxWrapper.appendChild(btnNext);
         btnNext.addEventListener("click", function () {
             currentIndex = currentIndex + 1;
@@ -144,32 +109,12 @@ export function displayLightBox(index, mediaArray) {
             media.appendChild(asset);
 
             console.log(photographerMedia);
-            //let asset = null;
-            // if (
-            //   photographerMedia.video == undefined ||
-            //   photographerMedia.video == null
-            // ) {
-            //   asset = document.createElement("img");
-            //   asset.src = picture;
-            //   asset.classList.add("photographer-all-img");
-            // }
             //***************************************************************** */
             asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video
                 }`;
         })
         //***************************************************************** */
         lightboxWrapper.appendChild(btnPrevious);
-        // btnPrevious.addEventListener('click', function () {
-        //     currentIndex = (currentIndex - 1) //% mediaArray.length;
-        //     if (currentIndex < 0) {
-        //         currentIndex = mediaArray.length - 1;
-        //         remove(card)
-        //     }
-        //     console.log('next');
-        //     photographerMedia = mediaArray[currentIndex];
-        //     console.log(photographerMedia);
-        //     asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video}`;
-        // });
 
         btnPrevious.addEventListener("click", function () {
             currentIndex = currentIndex - 1;
@@ -224,17 +169,6 @@ export function displayLightBox(index, mediaArray) {
             lightboxWrapper.appendChild(card);
             card.appendChild(media);
             media.appendChild(asset);
-            //***************************************************************** */
-            console.log(photographerMedia);
-            //let asset = null;
-            // if (
-            //   photographerMedia.video == undefined ||
-            //   photographerMedia.video == null
-            // ) {
-            //   asset = document.createElement("img");
-            //   asset.src = picture;
-            //   asset.classList.add("photographer-all-img");
-            // }
             //***************************************************************** */
             asset.src = `assets/media/${photographerMedia.photographerId}/${photographerMedia.image ?? photographerMedia.video
                 }`;
