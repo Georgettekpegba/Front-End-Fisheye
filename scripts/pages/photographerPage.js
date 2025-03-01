@@ -31,6 +31,121 @@ selectElement.addEventListener("change", (event) => {
     console.log("Selected value:", selectedValue);
     filterData(selectedValue); // pop < test
 });
+// form validation for contact form
+const form = document.querySelector(".contact_form");
+const firstName = document.querySelector("#first");
+const lastName = document.querySelector("#last");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message");
+const errorElement = document.querySelector(".error");
+form.addEventListener("submit", (e) => {
+    let messages = [];
+    if (firstName.value === "" || firstName.value == null) {
+        messages.push("First Name is required");
+    }
+    if (lastName.value === "" || lastName.value == null) {
+        messages.push("Last Name is required");
+    }
+    if (email.value === "" || email.value == null) {
+        messages.push("Email is required");
+    }
+    if (message.value === "" || message.value == null) {
+        messages.push("Message is required");
+    }
+    if (messages.length > 0) {
+        e.preventDefault();
+        errorElement.innerText = messages.join(", ");
+    }
+});
+
+// accessibility
+form.setAttribute("aria-label", "Contact form");
+form.setAttribute("role", "form");
+firstName.setAttribute("aria-label", "First Name");
+firstName.setAttribute("role", "textbox");
+lastName.setAttribute("aria-label", "Last Name");
+lastName.setAttribute("role", "textbox");
+email.setAttribute("aria-label", "Email");
+email.setAttribute("role", "textbox");
+message.setAttribute("aria-label", "Message");
+message.setAttribute("role", "textbox");
+errorElement.setAttribute("aria-label", "Error message");
+errorElement.setAttribute("role", "alert");
+
+// alternative for form validation
+
+// Form validation
+// function formValidation() {
+//     let successScore = 0;
+
+//     for (let i = 0; i < formInputs.length; i++) {
+//         const inputField = formInputs[i];
+//         inputField.value = inputField.value.trim();
+//         const inputId = inputField.id;
+
+//         if ((inputId === "firstname" || inputId === "lastname") && !isEmpty(inputField) && !checkLength(inputField, 2)) {
+//             successScore++;
+//         } else if (inputId === "email" && !isEmpty(inputField) && validateEmail(inputField)) {
+//             successScore++;
+//         } else if (inputId === "message" && !isEmpty(inputField)) {
+//             successScore++;
+//         }
+//     }
+
+//     if (successScore === 4) {
+//         showSuccessMessage();
+//     }
+// }
+
+// // Display success message if all fields are validated
+// function showSuccessMessage() {
+//     form.textContent = "";
+//     modalTitle.textContent = "";
+//     modalSuccessMessage.style.display = "block";
+// }
+
+// // Check if inputs are filled
+// function isEmpty(e) {
+//     if (e.value === '') {
+//         e.classList.add("wrong-input");
+//         e.nextElementSibling.textContent = "Ce champ est obligatoire, veuillez saisir une donnée";
+//         return true;
+//     } else {
+//         e.classList.remove("wrong-input");
+//         e.nextElementSibling.textContent = "";
+//         return false;
+//     }
+// }
+
+// // Check if element length is higher than specified number
+// function checkLength(e, n) {
+//     if (e.value.length < n) {
+//         e.classList.add("wrong-input");
+//         e.nextElementSibling.textContent = "Veuillez saisir au moins 3 caractères";
+//         return true;
+//     } else {       
+//         e.classList.remove("wrong-input"); 
+//         e.nextElementSibling.textContent = "";
+//         return false;
+//     }
+// }
+
+// // Check if the email format is valid
+// function validateEmail(e) {
+//     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!regex.test(e.value)) {
+//         e.classList.add("wrong-input");
+//         e.nextElementSibling.textContent = "Veuillez entrer une adresse email valide";
+//         return false;
+//     } else {
+//         e.classList.remove("wrong-input");
+//         e.nextElementSibling.textContent = "";
+//         return true;
+//     }
+// }
+
+
+// filter data
 function filterData(filter) {
     let photographersGallery = document.querySelector(
         ".photograph-galery_content"
@@ -114,6 +229,7 @@ function displayPhotographerMedia(mediaList) {
                     });
             }
         })
+
 
     });
 }

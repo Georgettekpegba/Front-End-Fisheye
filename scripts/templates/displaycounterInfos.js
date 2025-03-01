@@ -1,23 +1,28 @@
 // media sections
 export function displayCounterInfos(price) {
     const svg = `assets/svg/heart-black.svg`;
+
     function getCardDOM() {
         const article = document.createElement('article');
+
         // likes
         const mediaLikeCount = document.querySelectorAll(".like-btn");
         let totalMediaLikeCount = 0;
         mediaLikeCount.forEach((likes) => {
             totalMediaLikeCount += Number(likes.textContent);
         });
+
         // svg
         const svgImage = document.createElement('img');
         svgImage.src = svg;
         svgImage.classList.add('heart');
+
         // accessibility
         svgImage.setAttribute('tabindex', '0');
         svgImage.setAttribute('aria-label', 'likes');
         svgImage.setAttribute('alt', 'likes');
-        // // likes
+
+        // likes counter
         const likeWrapper = document.createElement('div');
         likeWrapper.classList.add('like-wrapper');
         const likeNumber = document.createElement('span');
@@ -27,29 +32,50 @@ export function displayCounterInfos(price) {
         displayCounterInfosWrap.classList.add('display-counter-infos-wrap');
         displayCounterInfosWrap.appendChild(likeNumber);
         displayCounterInfosWrap.appendChild(svgImage);
-        // @listerner like btn
+
+        // @listener like btn
         const likesBtns = document.querySelectorAll('.like-btn');
-        likesBtns.forEach((likesBtn) =>
-            likesBtn.addEventListener('click',
-                () => {
+        likesBtns.forEach((likesBtn) => {
+            likesBtn.addEventListener('click', (event) => {
+                if (likeNumber) {
+                    likeNumber.textContent = Number(likeNumber.textContent) + 1;
+                    updateTotalLikes();
+                }
+            });
+
+            // Accessibility: Increase like count when "Enter" is pressed
+            likesBtn.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.keyCode === 13) { // check for Enter key
                     if (likeNumber) {
                         likeNumber.textContent = Number(likeNumber.textContent) + 1;
+                        updateTotalLikes();
                     }
-                })
-        );
-        // prix
+                }
+            });
+        });
+
+        // Price
         const displayPrice = document.createElement('p');
         displayPrice.innerText = `${price}€/jour`;
         displayPrice.classList.add('photographer-price');
         likeWrapper.appendChild(displayCounterInfosWrap);
         likeWrapper.appendChild(displayPrice);
-        // a mettre en absolu css
-        // appenchild galerry
+
+        // Append to gallery
         const gallery = document.querySelector('.photograph-galery');
-        // appenchild price
         gallery.appendChild(likeWrapper);
+
         return article;
     }
-    return { getCardDOM };
 
+    function updateTotalLikes() {
+        let totalMediaLikeCount = 0;
+        document.querySelectorAll(".like-btn").forEach((likes) => {
+            totalMediaLikeCount += Number(likes.textContent);
+        });
+        const likeNumber = document.querySelector('.total-like');
+        likeNumber.textContent = totalMediaLikeCount;
+    }
+
+    return { getCardDOM };
 }
