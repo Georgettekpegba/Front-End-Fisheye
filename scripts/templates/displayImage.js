@@ -35,7 +35,7 @@ export function displayImage(photographerMedia) {
         link.appendChild(img);
         // // likes
         // const likeWraper = document.createElement('div');
-        const likeBtn = document.createElement('btn');
+        const likeBtn = document.createElement('button');
         likeBtn.classList.add('like-btn');
         likeBtn.setAttribute('tabindex', '0');
         const likeNumber = document.createElement('span');
@@ -69,8 +69,6 @@ export function displayImage(photographerMedia) {
                 // }
             }
         })
-
-
         // gallery
         const gallery = document.querySelector('.photograph-galery_content');
         gallery.appendChild(card);

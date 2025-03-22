@@ -14,7 +14,6 @@ export function photographerTemplate(data) {
         link.setAttribute('tabindex', '0');
         link.classList.add('img-tr');
 
-
         // on rajoute l'image du photographe
         const img = document.createElement('img');
         img.src = picture;

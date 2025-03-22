@@ -36,14 +36,14 @@ export function displayCounterInfos(price) {
         // @listener like btn
         const likesBtns = document.querySelectorAll('.like-btn');
         likesBtns.forEach((likesBtn) => {
-            likesBtn.addEventListener('click', (event) => {
+            likesBtn.addEventListener('click', () => {
                 if (likeNumber) {
                     likeNumber.textContent = Number(likeNumber.textContent) + 1;
                     updateTotalLikes();
                 }
             });
 
-            // Accessibility: Increase like count when "Enter" is pressed
+            // Accessibility: 
             likesBtn.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.keyCode === 13) { // check for Enter key
                     if (likeNumber) {

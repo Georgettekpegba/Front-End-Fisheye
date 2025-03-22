@@ -26,7 +26,15 @@ export const displayMediaWithFilter = mediasTemplate => {
 
     let filterAlreadySelected = allFilters.find(filter => filter.textContent == currentFilter.textContent);
     filterAlreadySelected.style.display = 'none';
-
+    // accessibility
+    allFilters.forEach(filter => {
+        filter.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                filter.click();
+            }
+        });
+    });
+    // ******************************************
     allFilters.forEach(filter => {
         filter.addEventListener('click', () => {
 

@@ -54,7 +54,20 @@ export function displayLightBox(index, mediaArray) {
         lightboxWrapper.appendChild(btnClose);
         btnClose.addEventListener('click', function () {
             lightboxWrapper.style.display = 'none';
-            card.remove();
+            // lightboxWrapper.removeChild(media);
+            // remove the lightbox
+            lightboxWrapper.removeChild(card);
+            // erasing the previous lightbox
+            // while (lightboxWrapper.firstChild) {
+            //     //<-- efface le lightbox
+            //     lightboxWrapper.removeChild(lightboxWrapper.firstChild);
+            // }
+            //remove the peceeding lightbox
+
+            console.log('====================================');
+            console.log(lightboxWrapper);
+            console.log('====================================');
+
         });
         //***************************************************************** */
 
@@ -185,7 +198,7 @@ export function displayLightBox(index, mediaArray) {
                 btnClose.click();
             }
         });
-
+        // *********************************
         return card;
     }
     return { getMediaCardDOM };

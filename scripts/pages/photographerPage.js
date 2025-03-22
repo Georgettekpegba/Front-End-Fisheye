@@ -31,46 +31,108 @@ selectElement.addEventListener("change", (event) => {
     console.log("Selected value:", selectedValue);
     filterData(selectedValue); // pop < test
 });
-// form validation for contact form
-const form = document.querySelector(".contact_form");
-const firstName = document.querySelector("#first");
-const lastName = document.querySelector("#last");
-const email = document.querySelector("#email");
-const message = document.querySelector("#message");
-const errorElement = document.querySelector(".error");
-form.addEventListener("submit", (e) => {
-    let messages = [];
-    if (firstName.value === "" || firstName.value == null) {
-        messages.push("First Name is required");
-    }
-    if (lastName.value === "" || lastName.value == null) {
-        messages.push("Last Name is required");
-    }
-    if (email.value === "" || email.value == null) {
-        messages.push("Email is required");
-    }
-    if (message.value === "" || message.value == null) {
-        messages.push("Message is required");
-    }
-    if (messages.length > 0) {
-        e.preventDefault();
-        errorElement.innerText = messages.join(", ");
-    }
-});
+// // form validation for contact form
+// ***********************************************************
+// DOM Elements
+// const modalbg = document.getElementById("contact_modal");
+// const modalBtn = document.querySelectorAll(".modal-btn");
+// const closeBtn = document.querySelector(".contact_close_btn");
+// const form = document.querySelector("form");
+// const firstName = document.querySelector("input:nth-of-type(1)");
+// const lastName = document.querySelector("input:nth-of-type(2)");
+// const email = document.querySelector("input:nth-of-type(3)");
+// const message = document.querySelector("#msg");
 
-// accessibility
-form.setAttribute("aria-label", "Contact form");
-form.setAttribute("role", "form");
-firstName.setAttribute("aria-label", "First Name");
-firstName.setAttribute("role", "textbox");
-lastName.setAttribute("aria-label", "Last Name");
-lastName.setAttribute("role", "textbox");
-email.setAttribute("aria-label", "Email");
-email.setAttribute("role", "textbox");
-message.setAttribute("aria-label", "Message");
-message.setAttribute("role", "textbox");
-errorElement.setAttribute("aria-label", "Error message");
-errorElement.setAttribute("role", "alert");
+// // Open modal
+// modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// function launchModal() {
+//     modalbg.style.display = "block";
+// }
+
+// // Close modal
+// closeBtn.addEventListener("click", closeModal);
+// function closeModal() {
+//     modalbg.style.display = "none";
+// }
+
+// // Email validation function
+// function validateEmail(email) {
+//     const regex = /\S+@\S+\.\S+/;
+//     return regex.test(email);
+// }
+
+// // Function to display error message
+// function showError(input, message) {
+//     let parentDiv = input.parentElement;
+//     parentDiv.setAttribute("data-error-visible", true);
+//     parentDiv.setAttribute("data-error", message);
+// }
+
+// // Function to clear error message
+// function clearError(input) {
+//     let parentDiv = input.parentElement;
+//     parentDiv.setAttribute("data-error-visible", false);
+//     parentDiv.setAttribute("data-error", "");
+// }
+
+// // Validation function
+// function validate(event) {
+//     event.preventDefault(); // Prevent form from submitting if there are errors
+//     let nbError = 0;
+
+//     // Validate First Name
+//     if (firstName.value.trim() === "") {
+//         showError(firstName, "Le prénom est requis");
+//         nbError++;
+//     } else if (firstName.value.length < 2) {
+//         showError(firstName, "Minimum 2 caractères requis");
+//         nbError++;
+//     } else {
+//         clearError(firstName);
+//     }
+
+//     // Validate Last Name
+//     if (lastName.value.trim() === "") {
+//         showError(lastName, "Le nom est requis");
+//         nbError++;
+//     } else if (lastName.value.length < 2) {
+//         showError(lastName, "Minimum 2 caractères requis");
+//         nbError++;
+//     } else {
+//         clearError(lastName);
+//     }
+
+//     // Validate Email
+//     if (!validateEmail(email.value)) {
+//         showError(email, "Veuillez entrer un email valide");
+//         nbError++;
+//     } else {
+//         clearError(email);
+//     }
+
+//     // Validate Message
+//     if (message.value.trim() === "") {
+//         showError(message, "Le message ne peut pas être vide");
+//         nbError++;
+//     } else {
+//         clearError(message);
+//     }
+
+//     // If no errors, submit the form
+//     if (nbError === 0) {
+//         alert("Formulaire envoyé !");
+//         closeModal();
+//         form.reset(); // Clear the form fields
+//     }
+// }
+
+// // Event Listener for form submit
+// form.addEventListener("submit", validate);
+
+
+// ***********************************************************
+
+
 
 // alternative for form validation
 
@@ -226,6 +288,8 @@ function displayPhotographerMedia(mediaList) {
                     .querySelector(".lightbox_close_btn")
                     .addEventListener("onpress", () => {
                         lightboxWrapper.removeChild(mediaCardDOM);
+                        // empty the lightbox
+
                     });
             }
         })
