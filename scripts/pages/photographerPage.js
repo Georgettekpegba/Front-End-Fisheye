@@ -1,36 +1,46 @@
 // Mettre le code JavaScript lié à la page photographer.html
-import {
-    displayModal,
-    closeModal,
-    closeModalEscape,
-} from "../utils/contactForm.js";
+// import {
+//     displayModal,
+//     closeModal,
+//     closeModalEscape,
+// } from "../utils/contactForm.js";
+import { contactFormTemplate } from "../templates/contact.js";
 import { getMedia } from "../api/media.js";
 import { photographerMainTemplate } from "../templates/photographerMainTemplate.js";
 import { mediaFactory } from "../factory/mediaFactory.js";
 import { displayLightBox } from "../templates/displayLightBox.js";
 import { displayCounterInfos } from "../templates/displaycounterInfos.js";
 let media = [];
-// @event
+// **********************************************************
+// contact form
+
+// Initialize contact form
+const contactForm = contactFormTemplate();
+
+// Attach event listener to open modal
 const contactFormBtn = document.querySelector(".contact_button");
-const contactFormClose = document.querySelector(".contact_close_btn");
+contactFormBtn.addEventListener("click", contactForm.displayModal);
+// @event => logic move to the contact.js template
+// const contactFormBtn = document.querySelector(".contact_button");
+// const contactFormClose = document.querySelector(".contact_close_btn");
 
 // **********************************************************
-// accessibility
-contactFormBtn.setAttribute("aria-label", "Open contact form");
-contactFormBtn.setAttribute("role", "button");
+// accessibility => logic move to the contact.js template
+// contactFormBtn.setAttribute("aria-label", "Open contact form");
+// contactFormBtn.setAttribute("role", "button");
 
-contactFormBtn.addEventListener("click", displayModal);
-contactFormClose.addEventListener("click", closeModal);
+// contactFormBtn.addEventListener("click", displayModal);
+// contactFormClose.addEventListener("click", closeModal);
 
-window.addEventListener("keydown", closeModalEscape);
+// window.addEventListener("keydown", closeModalEscape);
 
-const selectElement = document.querySelector("#sort-select");
+// const selectElement = document.querySelector("#sort-select");
 // Add an event listener for the 'change' event
-selectElement.addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
-    console.log("Selected value:", selectedValue);
-    filterData(selectedValue); // pop < test
-});
+// selectElement.addEventListener("change", (event) => {
+//     const selectedValue = event.target.value;
+//     console.log("Selected value:", selectedValue);
+//     filterData(selectedValue); // pop < test
+// });
 // // form validation for contact form
 // ***********************************************************
 // DOM Elements
@@ -43,7 +53,7 @@ selectElement.addEventListener("change", (event) => {
 // const email = document.querySelector("input:nth-of-type(3)");
 // const message = document.querySelector("#msg");
 
-// // Open modal
+// // Open modal => logic move to the contact.js template
 // modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // function launchModal() {
 //     modalbg.style.display = "block";
@@ -192,7 +202,7 @@ selectElement.addEventListener("change", (event) => {
 //     }
 // }
 
-// // Check if the email format is valid
+// Check if the email format is valid => logic move to the contact.js template
 // function validateEmail(e) {
 //     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //     if (!regex.test(e.value)) {
