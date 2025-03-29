@@ -56,7 +56,15 @@ export function displayLightBox(index, mediaArray) {
             lightboxWrapper.style.display = 'none';
             // lightboxWrapper.removeChild(media);
             // remove the lightbox
-            lightboxWrapper.removeChild(card);
+            // lightboxWrapper.removeChild(btnClose);
+            // mise en commentaire de lightboxWrapper.removeChild
+
+            // lightboxWrapper.removeChild(card);
+            var paras = lightboxWrapper.getElementsByClassName("photographer-media");
+            console.log(paras.length);
+            while (paras[0]) {
+                paras[0].parentNode.removeChild(paras[0]);
+            }
             // erasing the previous lightbox
             // while (lightboxWrapper.firstChild) {
             //     //<-- efface le lightbox
